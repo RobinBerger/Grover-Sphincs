@@ -1,4 +1,5 @@
 This project contains implementations of the Shake256, Haraka256, Haraka512 hash functions. It also contains Grover Oracles, that can be used for attacks on the SPHINCS+ signature scheme.
+It was developed for estimating the resource requirements for Grover attacks on the SPHINCS+ signature scheme.
 
 The common directory contains our implementation of the sponge construction.
 The haraka directory contains our implementation of the Haraka hash functions as well as the Haraka-based sponge hash function used in the SPHINCS+ signature scheme.
