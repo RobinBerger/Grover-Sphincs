@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.Quantum.Sdk/0.13.20102604">
+
+  <ItemGroup>
+    <ProjectReference Include="..\shake\shake.csproj" />
+    <ProjectReference Include="..\haraka\haraka.csproj" />
+    <ProjectReference Include="..\common\common.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DefaultSimulator>ToffoliSimulator</DefaultSimulator>
+  </PropertyGroup>
+
+</Project>
