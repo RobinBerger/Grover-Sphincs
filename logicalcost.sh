@@ -70,17 +70,17 @@ echo
 # Message digest attacks
 #################################################################################
 echo Logical cost for 128 bit shake small
-dotnet run --input-length 27 --prefix-length 48 --output-length 27 --evaluation-type spongeHash --function-type shake
+dotnet run --input-length 30 --prefix-length 48 --output-length 30 --evaluation-type spongeHash --function-type shake
 echo
 echo
 
 echo Logical cost for 128 bit shake fast
-dotnet run --input-length 43 --prefix-length 48 --output-length 43 --evaluation-type spongeHash --function-type shake
+dotnet run --input-length 34 --prefix-length 48 --output-length 34 --evaluation-type spongeHash --function-type shake
 echo
 echo
 
 echo Logical cost for 192 bit shake small
-dotnet run --input-length 36 --prefix-length 72 --output-length 36 --evaluation-type spongeHash --function-type shake
+dotnet run --input-length 39 --prefix-length 72 --output-length 39 --evaluation-type spongeHash --function-type shake
 echo
 echo
 
@@ -95,23 +95,23 @@ echo
 echo
 
 echo Logical cost for 256 bit shake fast
-dotnet run --input-length 47 --prefix-length 96 --output-length 47 --evaluation-type spongeHash --function-type shake
+dotnet run --input-length 49 --prefix-length 96 --output-length 49 --evaluation-type spongeHash --function-type shake
 echo
 echo
 
 #################################################################################
 echo Logical cost for 128 bit haraka small
-dotnet run --input-length 27 --prefix-length 0 --output-length 27 --evaluation-type spongeHash --function-type haraka
+dotnet run --input-length 30 --prefix-length 0 --output-length 30 --evaluation-type spongeHash --function-type haraka
 echo
 echo
 
 echo Logical cost for 128 bit haraka fast
-dotnet run --input-length 43 --prefix-length 0 --output-length 43 --evaluation-type spongeHash --function-type haraka
+dotnet run --input-length 34 --prefix-length 0 --output-length 34 --evaluation-type spongeHash --function-type haraka
 echo
 echo
 
 echo Logical cost for 192 bit haraka small
-dotnet run --input-length 36 --prefix-length 16 --output-length 36 --evaluation-type spongeHash --function-type haraka
+dotnet run --input-length 39 --prefix-length 16 --output-length 39 --evaluation-type spongeHash --function-type haraka
 echo
 echo
 
@@ -126,7 +126,7 @@ echo
 echo
 
 echo Logical cost for 256 bit haraka fast
-dotnet run --input-length 47 --prefix-length 0 --output-length 47 --evaluation-type spongeHash --function-type haraka
+dotnet run --input-length 49 --prefix-length 0 --output-length 49 --evaluation-type spongeHash --function-type haraka
 echo
 echo
 
@@ -142,3 +142,15 @@ for hash in shake haraka; do
 		echo
 	done
 done
+
+#################################################################################
+# diffusion
+#################################################################################
+for parameter in 16 24 32 30 34 39 42 47 49; do
+	let bitsec=8*$parameter
+	echo logical cost for $bitsec bit diffusion
+	dotnet run --evaluation-type diffusion --input-length $parameter --output-length 0 --prefix-length 0 --function-type shake
+	echo
+	echo
+done
+
