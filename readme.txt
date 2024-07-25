@@ -1,3 +1,6 @@
+This is the implementation of the paper "On Forging SPHINCS+-Haraka Signatures on a Fault-tolerant Quantum Computer".
+The published version of the paper is available at https://doi.org/10.1007/978-3-030-88238-9_3 and the extended version of the paper is available at https://eprint.iacr.org/2021/1484.
+
 This project contains implementations of the Shake256, Haraka256, Haraka512 hash functions. It also contains Grover Oracles, that can be used for attacks on the SPHINCS+ signature scheme.
 It was developed for estimating the resource requirements for Grover attacks on the SPHINCS+ signature scheme.
 
@@ -14,3 +17,5 @@ The bash script ./logicalcost.sh estimates the resource requirements for the Gro
 The implementations were developed with version 0.13.20102604 of the Microsoft Quantum Development Kit and version 3.1.405 of the .NET Core framework on Ubuntu 18.04.
 For install instructions see https://docs.microsoft.com/en-us/quantum/quickstarts/install-command-line and https://docs.microsoft.com/en-us/dotnet/core/install/linux.
 Using our Q# implementations mentioned above requires these versions of the QDK and the .NET Core framework to be installed.
+
+The script FaultTolerantResourceEstimation.py can be used to calculate the overhead caused by error correction.
